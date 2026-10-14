@@ -8,6 +8,10 @@ Mods para o Claude Code: plugins de *function hooks* que mudam a interface e o c
 | [`status-inline`](#status-inline) | Medidores compactos (contexto, rate limits, modelo, custo, tokens) na linha do mode. |
 | [`model-picker`](#model-picker) | Troca o modelo e o effort da sessão pela janela de mods. |
 
+<img width="1084" height="101" alt="image" src="https://github.com/user-attachments/assets/ac343e6d-1300-4469-9443-7b241f6e7b14" />
+<img width="216" height="427" alt="image" src="https://github.com/user-attachments/assets/b03d8f45-afad-45ec-b53d-415e3e89bba8" />
+
+
 ## Instalar
 
 ### Em todos os terminais (recomendado)
