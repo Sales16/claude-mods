@@ -8,8 +8,6 @@ Mods para o Claude Code: plugins de *function hooks* que mudam a interface e o c
 | [`status-inline`](#status-inline) | Medidores compactos (contexto, rate limits, modelo, custo, tokens) na linha do mode. |
 | [`model-picker`](#model-picker) | Troca o modelo e o effort da sessão pela janela de mods. |
 
-Feito e testado no Claude Code 2.1.296. A API de mods é *early access* e pode mudar entre versões.
-
 ## Instalar
 
 ### Em todos os terminais (recomendado)
@@ -17,7 +15,7 @@ Feito e testado no Claude Code 2.1.296. A API de mods é *early access* e pode m
 Em qualquer sessão do Claude Code:
 
 ```
-/plugin marketplace add C:\MyProjects\claude-mods
+/plugin marketplace add Sales16/claude-mods
 /plugin install mods-hub@claude-mods
 /plugin install status-inline@claude-mods
 /plugin install model-picker@claude-mods
@@ -25,7 +23,13 @@ Em qualquer sessão do Claude Code:
 
 - Escolha o escopo **user** na instalação: os mods passam a carregar em todo terminal novo, em qualquer projeto.
 - Instale o `mods-hub` junto: o `status-inline` depende dele.
-- O Claude Code lê os mods direto desta pasta, sem copiar. Depois de mudar o repo, rode `/reload-plugins` no terminal aberto; não precisa reinstalar.
+
+Para pegar uma versão nova do repositório:
+
+```
+/plugin marketplace update claude-mods
+/reload-plugins
+```
 
 Para remover:
 
@@ -38,6 +42,12 @@ Para remover:
 ### Direto das pastas, sem instalar
 
 Útil enquanto você mexe nos mods: o terminal vigia as pastas e recarrega o mod sozinho quando um arquivo muda.
+
+Clone o repositório primeiro. Os exemplos abaixo usam `C:\MyProjects\claude-mods`; troque pelo caminho do seu clone.
+
+```
+git clone https://github.com/Sales16/claude-mods.git C:\MyProjects\claude-mods
+```
 
 Para todos os terminais, em `~/.claude/settings.json`:
 
