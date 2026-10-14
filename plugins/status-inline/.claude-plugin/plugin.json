@@ -1,0 +1,139 @@
+{
+  "name": "status-inline",
+  "version": "0.1.0",
+  "author": {
+    "name": "Eduardo Sales"
+  },
+  "description": "Compact neon usage meters (ctx, 5h, 7d, model, effort, cost) on the permission-mode line.",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Ativo",
+      "description": "Mostra os medidores depois da linha do mode.\nDesligado, a linha fica como o Claude Code desenha.\nEx.: ⏵⏵ auto mode on{#39FF14} │ ctx ▰▰▱▱▱▱▱▱ 25% │ 5h ▰▱▱▱▱▱▱▱ 18% ↻9:00{/}",
+      "default": true
+    },
+    "color": {
+      "type": "string",
+      "title": "Cor",
+      "description": "Cor dos rótulos, valores e barras.\nAmarelo e vermelho continuam valendo a partir dos limites.\nEx.: {#39FF14}ctx ▰▰▰▰▰▱▱▱ 62% │ opus5.5·hi{/}\n-- verde-neon\nCor #39FF14.\nEx.: {#39FF14}ctx ▰▰▰▰▰▱▱▱ 62% │ opus5.5·hi{/}\n-- ciano\nCor #00F0FF.\nEx.: {#00F0FF}ctx ▰▰▰▰▰▱▱▱ 62% │ opus5.5·hi{/}\n-- magenta\nCor #FF2BD6.\nEx.: {#FF2BD6}ctx ▰▰▰▰▰▱▱▱ 62% │ opus5.5·hi{/}\n-- laranja\nCor #FF9F1C.\nEx.: {#FF9F1C}ctx ▰▰▰▰▰▱▱▱ 62% │ opus5.5·hi{/}\n-- azul\nCor #3D8BFF.\nEx.: {#3D8BFF}ctx ▰▰▰▰▰▱▱▱ 62% │ opus5.5·hi{/}\n-- roxo\nCor #B266FF.\nEx.: {#B266FF}ctx ▰▰▰▰▰▱▱▱ 62% │ opus5.5·hi{/}\n-- branco\nCor #F2F2F2.\nEx.: {#F2F2F2}ctx ▰▰▰▰▰▱▱▱ 62% │ opus5.5·hi{/}",
+      "options": [
+        "verde-neon",
+        "ciano",
+        "magenta",
+        "laranja",
+        "azul",
+        "roxo",
+        "branco"
+      ],
+      "default": "verde-neon"
+    },
+    "bar_style": {
+      "type": "string",
+      "title": "Barra",
+      "description": "Desenho da barra: a célula cheia e a vazia.\nCada barra tem 8 células, uma a cada 12,5%.\nEx.: {#39FF14}ctx ▰▰▰▰▰▱▱▱ 62%{/}\n-- ▰▱\nCheia ▰, vazia ▱.\nEx.: {#39FF14}ctx ▰▰▰▰▰▱▱▱ 62%{/}\n-- █░\nCheia █, vazia ░.\nEx.: {#39FF14}ctx █████░░░ 62%{/}\n-- ■□\nCheia ■, vazia □.\nEx.: {#39FF14}ctx ■■■■■□□□ 62%{/}\n-- ●○\nCheia ●, vazia ○.\nEx.: {#39FF14}ctx ●●●●●○○○ 62%{/}\n-- ⣿⣀\nCheia ⣿, vazia ⣀.\nEx.: {#39FF14}ctx ⣿⣿⣿⣿⣿⣀⣀⣀ 62%{/}\n-- ━┄\nCheia ━, vazia ┄.\nEx.: {#39FF14}ctx ━━━━━┄┄┄ 62%{/}",
+      "options": [
+        "▰▱",
+        "█░",
+        "■□",
+        "●○",
+        "⣿⣀",
+        "━┄"
+      ],
+      "default": "▰▱"
+    },
+    "reset_label": {
+      "type": "string",
+      "title": "Reset",
+      "description": "Como mostrar quando as janelas resetam.\nA janela de 5h mostra o horário; a de 7d, o dia da semana.\nEx.: {#39FF14}5h ▰▱▱▱▱▱▱▱ 18% ↻9:00 │ 7d ▰▰▰▱▱▱▱▱ 41% ↻seg{/}\n-- oculto\nNão mostra o reset.\nEx.: {#39FF14}5h ▰▱▱▱▱▱▱▱ 18% │ 7d ▰▰▰▱▱▱▱▱ 41%{/}\n-- valor\nSó o horário ou o dia.\nEx.: {#39FF14}5h ▰▱▱▱▱▱▱▱ 18% 9:00 │ 7d ▰▰▰▱▱▱▱▱ 41% seg{/}\n-- ícone\nO valor com ↻ na frente.\nEx.: {#39FF14}5h ▰▱▱▱▱▱▱▱ 18% ↻9:00 │ 7d ▰▰▰▱▱▱▱▱ 41% ↻seg{/}\n-- texto\nA frase completa.\nEx.: {#39FF14}5h ▰▱▱▱▱▱▱▱ 18% reset às 9:00 │ 7d ▰▰▰▱▱▱▱▱ 41% reset em seg{/}",
+      "options": [
+        "oculto",
+        "valor",
+        "ícone",
+        "texto"
+      ],
+      "default": "ícone"
+    },
+    "ctx": {
+      "type": "boolean",
+      "title": "ctx %",
+      "description": "Quanto da janela de contexto o último request usou.\nEx.: {#39FF14}ctx ▰▰▱▱▱▱▱▱ 25%{/}",
+      "default": true
+    },
+    "five_hour": {
+      "type": "boolean",
+      "title": "5h %",
+      "description": "Uso da janela de rate limit de 5 horas.\nO reset segue a opção Reset.\nEx.: {#39FF14}5h ▰▱▱▱▱▱▱▱ 18% ↻14:30{/}",
+      "default": true
+    },
+    "seven_day": {
+      "type": "boolean",
+      "title": "7d %",
+      "description": "Uso da janela semanal de rate limit.\nO reset segue a opção Reset.\nEx.: {#39FF14}7d ▰▰▰▱▱▱▱▱ 41% ↻sex{/}",
+      "default": true
+    },
+    "model": {
+      "type": "boolean",
+      "title": "Modelo",
+      "description": "Modelo do request atual, abreviado.\nEx.: {#39FF14}opus5.5{/}",
+      "default": true
+    },
+    "effort": {
+      "type": "boolean",
+      "title": "Effort",
+      "description": "Effort do request atual: lo, md, hi, xh ou max.\nEx.: {#39FF14}opus5.5·hi{/}",
+      "default": true
+    },
+    "cost": {
+      "type": "boolean",
+      "title": "Custo $",
+      "description": "Custo da sessão em dólares, como o /cost soma.\nEx.: {#39FF14}$1.23{/}",
+      "default": true
+    },
+    "tokens": {
+      "type": "string",
+      "title": "Tokens",
+      "description": "Tokens gastos na sessão, somando a conversa principal e os subagents.\nConta a partir de quando o mod carregou.\nEx.: {#39FF14}tok 1.2M{/}\n-- oculto\nNão mostra os tokens.\n-- total\nEntrada, cache lido, cache escrito e saída.\nEx.: {#39FF14}tok 1.2M{/}\n-- sem-cache\nO total sem o cache lido, que cada request relê.\nEx.: {#39FF14}tok 75k{/}\n-- in/out\nEntrada (com cache) e saída separadas.\nEx.: {#39FF14}tok ↑1.2M ↓40k{/}",
+      "options": [
+        "oculto",
+        "total",
+        "sem-cache",
+        "in/out"
+      ],
+      "default": "total"
+    },
+    "compact": {
+      "type": "boolean",
+      "title": "cmp",
+      "description": "Tokens que faltam até o auto-compact resumir a conversa.\nFica amarelo nos últimos 10%.\nEx.: {#39FF14}cmp ≈18k{/}",
+      "default": true
+    },
+    "burn": {
+      "type": "boolean",
+      "title": "Projeção 5h",
+      "description": "Uso que a janela de 5h terá no reset, se o ritmo atual continuar.\nAparece depois de 10 minutos de janela.\nEx.: {#39FF14}🔥 →64%{/} · {#FF3131}🔥 →130%{/}",
+      "default": true
+    },
+    "bars": {
+      "type": "boolean",
+      "title": "Barras",
+      "description": "Mostra as barras ao lado das porcentagens.\nEm tela estreita elas somem primeiro.\nEx.: {#39FF14}ctx ▰▰▱▱▱▱▱▱ 25%{/} · desligado {#39FF14}ctx 25%{/}",
+      "default": true
+    },
+    "warn_at": {
+      "type": "number",
+      "title": "Amarelo a partir de %",
+      "description": "A partir dessa %, valor e barra ficam amarelos.\nEx.: 70 → {#FFE600}5h ▰▰▰▰▰▰▱▱ 72%{/}",
+      "default": 70
+    },
+    "danger_at": {
+      "type": "number",
+      "title": "Vermelho a partir de %",
+      "description": "A partir dessa %, valor e barra ficam vermelhos.\nEx.: 90 → {#FF3131}ctx ▰▰▰▰▰▰▰▱ 93%{/}",
+      "default": 90
+    }
+  },
+  "dependencies": [
+    "mods-hub"
+  ]
+}

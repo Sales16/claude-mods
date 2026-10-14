@@ -1,0 +1,42 @@
+{
+  "name": "model-picker",
+  "version": "0.1.0",
+  "author": {
+    "name": "Eduardo Sales"
+  },
+  "description": "Pick the session's model and effort from the mods pane.",
+  "userConfig": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Ativo",
+      "description": "Aplica o modelo e o effort escolhidos aqui.\nDesligado, nada é trocado nem sincronizado.",
+      "default": true
+    },
+    "model": {
+      "type": "string",
+      "title": "Modelo",
+      "description": "Modelo da sessão, trocado na hora como o /model faz.\nUm /model digitado à mão aparece aqui também.\nO primeiro request depois da troca relê a conversa sem cache.\n-- default\nO modelo padrão da sua conta.\nEx.: {#39FF14}opus5.5·hi{/}\n-- opus\nO mais forte para código e tarefas longas.\nEx.: {#39FF14}opus5.5·hi{/}\n-- sonnet\nRápido e mais barato que o Opus.\nEx.: {#39FF14}sonnet5.5·hi{/}\n-- haiku\nO mais rápido e barato, para tarefas simples.\nEx.: {#39FF14}haiku5.5·hi{/}\n-- fable\nModelo Fable mais recente.\nEx.: {#39FF14}fable5.1·hi{/}",
+      "options": [
+        "default",
+        "opus",
+        "sonnet",
+        "haiku",
+        "fable"
+      ],
+      "default": "default"
+    },
+    "effort": {
+      "type": "string",
+      "title": "Effort",
+      "description": "Quanto o modelo raciocina, trocado na hora como o /effort faz.\nUm /effort digitado à mão aparece aqui também.\n-- low\nRaciocina pouco: respostas rápidas e baratas.\nEx.: {#39FF14}opus5.5·lo{/}\n-- medium\nEquilíbrio entre velocidade e raciocínio.\nEx.: {#39FF14}opus5.5·md{/}\n-- high\nRaciocina mais antes de agir.\nEx.: {#39FF14}opus5.5·hi{/}\n-- xhigh\nRaciocínio extra para problemas difíceis.\nEx.: {#39FF14}opus5.5·xh{/}\n-- max\nO máximo de raciocínio: mais lento e caro.\nEx.: {#39FF14}opus5.5·max{/}",
+      "options": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "default": "high"
+    }
+  }
+}

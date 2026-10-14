@@ -1,0 +1,24 @@
+{
+  "name": "claude-mods",
+  "description": "Claude Code mods: mods-hub pane, status-inline meters, model-picker.",
+  "owner": {
+    "name": "Eduardo Sales"
+  },
+  "plugins": [
+    {
+      "name": "mods-hub",
+      "source": "./plugins/mods-hub",
+      "description": "◆ button and /mods pane to toggle mods and edit their settings live."
+    },
+    {
+      "name": "model-picker",
+      "source": "./plugins/model-picker",
+      "description": "Pick the session's model and effort from the mods pane."
+    },
+    {
+      "name": "status-inline",
+      "source": "./plugins/status-inline",
+      "description": "Compact neon usage meters on the permission-mode line."
+    }
+  ]
+}

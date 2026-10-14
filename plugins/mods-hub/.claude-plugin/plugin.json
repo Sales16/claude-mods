@@ -1,0 +1,26 @@
+{
+  "name": "mods-hub",
+  "version": "0.1.0",
+  "author": {
+    "name": "Eduardo Sales"
+  },
+  "description": "◆ button on the mode line and /mods side pane to toggle mods and edit their settings live.",
+  "userConfig": {
+    "color": {
+      "type": "string",
+      "title": "Cor do ◆ mods",
+      "description": "Cor do botão ◆ mods na linha do mode.\nEx.: {#39FF14}◆ mods{/} ⏵⏵ auto mode on\n-- verde-neon\nCor #39FF14.\nEx.: {#39FF14}◆ mods{/} ⏵⏵ auto mode on\n-- ciano\nCor #00F0FF.\nEx.: {#00F0FF}◆ mods{/} ⏵⏵ auto mode on\n-- magenta\nCor #FF2BD6.\nEx.: {#FF2BD6}◆ mods{/} ⏵⏵ auto mode on\n-- laranja\nCor #FF9F1C.\nEx.: {#FF9F1C}◆ mods{/} ⏵⏵ auto mode on\n-- azul\nCor #3D8BFF.\nEx.: {#3D8BFF}◆ mods{/} ⏵⏵ auto mode on\n-- roxo\nCor #B266FF.\nEx.: {#B266FF}◆ mods{/} ⏵⏵ auto mode on\n-- branco\nCor #F2F2F2.\nEx.: {#F2F2F2}◆ mods{/} ⏵⏵ auto mode on",
+      "options": [
+        "verde-neon",
+        "ciano",
+        "magenta",
+        "laranja",
+        "azul",
+        "roxo",
+        "branco"
+      ],
+      "default": "verde-neon"
+    }
+  },
+  "types": "./types/index.d.ts"
+}
